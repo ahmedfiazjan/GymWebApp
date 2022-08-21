@@ -1,0 +1,129 @@
+<mat-toolbar color="primary">
+  <mat-icon class="material-icons">fitness_center</mat-icon>
+  <span class="small-spacer"></span>
+  <span>MuscleFitness</span>
+
+  <mat-tab-group #navOptions (selectedTabChange)="selectedTabChange($event)" *ngIf="auth.user | async as user">
+    <mat-tab label="workouts">
+      <ng-template mat-tab-label>
+        <mat-icon>fitness_center</mat-icon>
+        <span class="space-between"></span>
+        Workouts
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="articles">
+      <ng-template mat-tab-label>
+        <mat-icon>feed</mat-icon>
+        <span class="space-between"></span>
+        Articles
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="nutrition">
+      <ng-template mat-tab-label>
+        <mat-icon>blender</mat-icon>
+        <span class="space-between"></span>
+        Nutirition Info.
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+
+
+  <span class="spacer"></span>
+  <div *ngIf="auth.user | async as user; else showlogout">
+    <button mat-icon-button (click)="logout()">
+      <!--    <mat-icon>favorite</mat-icon>-->
+      <i class="material-icons">logout</i>
+    </button>
+  </div>
+  <ng-template #showlogout>
+    <button mat-icon-button (click)="login()">
+      <i class="material-icons">login</i>
+    </button>
+  </ng-template>
+
+</mat-toolbar>
+
+<div class="home-bg">
+  <div class="home-welcome wobble-animation">
+    <h1 class="welcome">
+      Welcome to Fitness
+    </h1>
+  </div>
+  <div *ngIf="selectedTab">
+    <div *ngIf="selectedTab == 'workouts' ">
+
+      <mat-card *ngFor="let e of exercises" class="exercises-card">
+        <mat-card-title-group>
+          <mat-card-title><u>{{e.name}}</u></mat-card-title>
+          <mat-card-subtitle>{{e.type  | uppercase}} </mat-card-subtitle>
+          <mat-card-subtitle>{{e.muscle | uppercase}} / {{e.difficulty | uppercase}}
+            / {{e.equipment | uppercase}} </mat-card-subtitle>
+          <img mat-card-lg-image src="assets/card2.jpg">
+        </mat-card-title-group>
+        <mat-card-content>
+          {{e.instructions}}
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+    <div *ngIf="selectedTab == 'articles' ">
+      <mat-card *ngFor="let a of articles" class="exercises-card">
+        <mat-card-title-group>
+          <span class="small-vertical-space"></span>
+          <mat-card-title><u>{{a.title}}</u></mat-card-title>
+          <mat-card-subtitle><i>Source: {{a.source  | uppercase}} </i></mat-card-subtitle>
+        </mat-card-title-group>
+        <mat-card-actions>
+          <a href="{{a.url}}" target="_blank" mat-button>
+            <mat-icon>link</mat-icon>
+            <span> <u>Read More (Open article in new tab)</u></span>
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div *ngIf="selectedTab == 'nutrition' ">
+      <mat-card style="height: 500px;">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Enter Food Item</mat-label>
+          <input matInput placeholder="Ex. Pizza" [(ngModel)]="query">
+        </mat-form-field>
+        <button (click)="getNutritionInfo()" mat-raised-button style="color: white">Search</button>
+        <br><hr>
+        <mat-card-content>
+          <table style="width: 100%" mat-table [dataSource]="tableData" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="num">
+              <th mat-header-cell *matHeaderCellDef> No. </th>
+              <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="value">
+              <th mat-header-cell *matHeaderCellDef> Value </th>
+              <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+
+          <!--          <p *ngFor="let n of nutrition | keyvalue ">-->
+<!--            <i><span><u>{{n.key}}</u></span> : <span>{{n.value}}</span></i>-->
+<!--          </p>-->
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+

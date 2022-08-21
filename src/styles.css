@@ -1,0 +1,126 @@
+/*@import "~@angular/material/prebuilt-themes/indigo-pink.css" !* You can add global styles to this file, and also import other style files *!*/
+/*@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';*/
+/*@import 'src/my-theme.scss';*/
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+.small-spacer {
+  width: 10px;
+  display: inline-block;
+}
+.toolbar-button{
+  color: #1a3539;
+}
+/*MAT CARD*/
+
+.mat-card {
+  background:#0d1a18;
+  color:white;
+}
+/*MAT BUTTON*/
+
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+  background-color: #1a3539;
+}
+
+/*MAT FORM FIELD*/
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: white;
+}
+
+.mat-form-field-label {
+  color: white;
+}
+
+ .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+     background-color: white!important;
+   }
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: white!important;
+  }
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: white!important;
+  }
+
+ .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+     color: red!important;
+     opacity: 0.8!important;
+   }
+ .mat-input-element {
+     caret-color: white!important;
+   }
+.mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+     caret-color: red!important;
+   }
+
+ .mat-form-field.mat-focused .mat-form-field-label {
+     color: white!important;
+   }
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-label {
+     color: red!important;
+   }
+
+/*MAT TAB LABEL*/
+.mat-tab-label {
+  color: white;
+}
+.mat-tab-label-active{
+  color: white;
+}
+
+
+.space-between {
+  margin: 0 2px 0 2px;
+}
+
+
+/*ANIMATIONS*/
+
+.wobble-animation:hover {
+  animation: myAnim 2s ease 0s 1 normal forwards;
+}
+@keyframes myAnim {
+  0%,
+  100% {
+    transform: translateX(0%);
+    transform-origin: 50% 50%;
+  }
+
+  15% {
+    transform: translateX(-30px) rotate(6deg);
+  }
+
+  30% {
+    transform: translateX(15px) rotate(-6deg);
+  }
+
+  45% {
+    transform: translateX(-15px) rotate(3.6deg);
+  }
+
+  60% {
+    transform: translateX(9px) rotate(-2.4deg);
+  }
+
+  75% {
+    transform: translateX(-6px) rotate(1.2deg);
+  }
+}
+
+.small-vertical-space {
+  margin: 4px 0 4px 0;
+}

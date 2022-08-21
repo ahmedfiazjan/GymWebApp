@@ -1,0 +1,29 @@
+
+.login {
+  width: 30%;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  top: 20%;
+}
+
+.loginform mat-error {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px 0 5px 0;
+}
+
+.login-bg{
+  background-image: url('src/assets/articlesng.jpg');
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center;
+  height: 100%;
+  /*background-color: #1a3539;*/
+  /*margin-top: 20px;*/
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+}

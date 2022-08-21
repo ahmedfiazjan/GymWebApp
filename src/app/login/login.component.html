@@ -1,0 +1,37 @@
+<div class="login-bg">
+  <div class="login-container">
+    <mat-card class="login">
+      <mat-card-title><u>Login</u></mat-card-title>
+      <br>
+      <br>
+      <form #loginForm="ngForm">
+        <div class="loginform">
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input ngModel matInput minlength="4" required name="email" #email>
+              <mat-error *ngIf="email.validity.valid == false">{{email.validationMessage}}</mat-error>
+            </mat-form-field>
+          </div>
+          <br>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input type="password" minlength="6" ngModel matInput required name="password" #password>
+              <mat-error *ngIf="password.validity.valid == false">{{password.validationMessage}}</mat-error>
+            </mat-form-field>
+          </div>
+          <br>
+          <button mat-flat-button color="primary" (click)="login(loginForm)">Login</button>
+        </div>
+      </form>
+
+      <mat-card-footer>
+        <br>
+        <mat-progress-bar *ngIf="showProgressBar" mode="indeterminate"></mat-progress-bar>
+        <br>
+        <mat-card-subtitle class="mat-error" *ngIf="error">Incorrect Credentials</mat-card-subtitle>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>

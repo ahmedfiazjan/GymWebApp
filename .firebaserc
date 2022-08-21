@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "gymwebapp-482e1": {
+      "hosting": {
+        "GymWebApp": [
+          "gymwebapp-482e1"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "gymwebapp-482e1"
+  }
+}
