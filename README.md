@@ -1,6 +1,21 @@
 # GymWebApp
 
+## About the Project
+
+This is a small Angular app I made about fitness.
+
+A Gym Web App that displays exercise information, health articles and nutrition information. The UI made with Angular Material.
+
+### It uses Firebase Authentiation for signing up and logging in.
+
 ![login](/src/assets/login.png?raw=true "Login")
+
+### It uses 3rd Party APIs to fetch and display data about, health, nutrition and fitness.
+
+![articles](/src/assets/articles.png?raw=true "Login")
+![nutrition](/src/assets/nutrition.png?raw=true "Login")
+![exercises](/src/assets/exercises.png?raw=true "Login")
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
 
